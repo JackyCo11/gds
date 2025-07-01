@@ -1,2 +1,48 @@
-# gds
-wordshopmanual
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng nhập và ẩn URL</title>
+  <style>
+    #iframeContainer {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="loginTitle">Trang Đăng Nhập</h2>
+  <form id="loginForm">
+    <label>Tên đăng nhập:</label><br>
+    <input type="text" id="username"><br><br>
+
+    <label>Mật khẩu:</label><br>
+    <input type="password" id="password"><br><br>
+
+    <button type="submit">Đăng nhập</button>
+  </form>
+
+  <div id="iframeContainer">
+    <iframe src="https://kiagds.ru/" width="100%" height="1000px" style="border:none;"></iframe>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event){
+      event.preventDefault();
+
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if(username === "admingds" && password === "123456"){
+        
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("loginTitle").style.display = "none";
+
+       
+        document.getElementById("iframeContainer").style.display = "block";
+      } else {
+        alert("Sai tên đăng nhập hoặc mật khẩu!");
+      }
+    });
+  </script>
+</body>
+</html>
